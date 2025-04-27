@@ -4,15 +4,20 @@
  * Module dependencies.
  */
 
+// import { CONNECTION_STRING } from '../config';
+
 var app = require('../app');
 var debug = require('debug')('api:server');
 var http = require('http');
-
+//veritabani baglantisi
+const Database = require("../db/Database");
+const { CONNECTION_STRING, PORT } = require("../config");
 /**
  * Get port from environment and store in Express.
  */
-
-var port = normalizePort(process.env.PORT || '3000');
+// process.env.Port kullanımı tercih etme - CONFİG İCİNE DAHİL ETTİK
+// var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(PORT);
 app.set('port', port);
 
 /**
@@ -87,4 +92,7 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
+
+  //database ilavesi
+  new Database().connect({CONNECTION_STRING : CONNECTION_STRING})
 }
