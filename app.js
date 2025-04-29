@@ -8,8 +8,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+//video  dk : 3:09 alt iki satur silindi
+// var indexRouter = require('./routes/index');
+// var usersRouter = require('./routes/users');
 
 var app = express();
 
@@ -33,8 +34,17 @@ app.use((req, res, next) => {
   
 });
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+//video 8 alttaki gibi kullanmak yerine dk 13 itibarı ile 
+//router tanimlamalari http://localhost:3000   /users
+// app.use('/', indexRouter);
+// app.use('/users', usersRouter);
+// app.use('/', require('./routes/index')); //http://localhost:3000
+// app.use('/users', require('./routes/users'));  //http://localhost:3000/users
+// video 8 dk 8
+// app.use('/auditlogs', require('./routes/auditlogs'))  
+// app.use('/categories', require('./routes/categories'))  
+app.use('/api', require('./routes/index'))
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

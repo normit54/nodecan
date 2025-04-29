@@ -1,3 +1,5 @@
+//temel express js yapısı
+
 var express = require('express');
 var router = express.Router();
 
