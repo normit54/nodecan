@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
-
+//ilk asama created_by  require true yı kaldırdık
 const schema = mongoose.Schema({
     role_id: {type: mongoose.SchemaTypes.ObjectId, required: true},
     permission: {type: String, required: true},
-    created_by: {type: mongoose.SchemaTypes.ObjectId, required: true},
+    created_by: {type: mongoose.SchemaTypes.ObjectId},
        
 }, {
     //mogoose un versionKey i otomatik olusturmasını kapattık
